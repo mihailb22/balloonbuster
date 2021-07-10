@@ -72,7 +72,31 @@ function draw() {
       pinkBalloon();
     }
   }  
-    
+  
+  
+  if(arrowGroup.isTouching(redB)){
+    redB.destroyEach();
+    arrowGroup.destroyEach();
+    score++;
+  }
+  if(arrowGroup.isTouching(blueB)){
+    blueB.destroyEach();
+    arrowGroup.destroyEach();
+    score=score+3;
+  }
+  if(arrowGroup.isTouching(greenB)){
+    greenB.destroyEach();
+    arrowGroup.destroyEach();
+    score=score+6;
+  }
+
+  if(arrowGroup.isTouching(pinkB)){
+    pinkB.destroyEach();
+    arrowGroup.destroyEach();
+    score=score+4;
+  }
+
+
   drawSprites();
   text("Score: "+ score, 300,50);
 }
@@ -87,6 +111,8 @@ function draw() {
   arrow.velocityX = -4;
   arrow.lifetime = 100;
   arrow.scale = 0.3;
+  arrowGroup.add(arrow);
+
 }
 
 function redBalloon() {
@@ -95,6 +121,8 @@ function redBalloon() {
   red.velocityX = 3;
   red.lifetime = 150;
   red.scale = 0.1;
+  redB.add(red);
+
 }
 
 function blueBalloon() {
@@ -103,6 +131,8 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
+  blueB.add(blue);
+
 }
 
 function greenBalloon() {
@@ -111,6 +141,8 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
+  greenB.add(green);
+
 }
 
 function pinkBalloon() {
@@ -119,4 +151,5 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
+  pinkB.add(pink);
 }
